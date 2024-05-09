@@ -16,7 +16,7 @@ function home() {
       const getproductcategory = async ()=>{
         try {
           const { data } =  await axios.get(`/products/category/${category}`);
-          // setfilterproducts(data);
+          setfilterproducts(data);
         } catch (error) {
           console.log(error);
         }
@@ -24,7 +24,7 @@ function home() {
       useEffect(()=>{
         if(!filterproducts || category == "undefined")  setfilterproducts(products);
           if(category != "undefined"){
-            //  getproductcategory();
+             getproductcategory();
            setfilterproducts(products.filter((p) => p.category == category));
           }
        
